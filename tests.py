@@ -35,10 +35,11 @@ class TestBooksCollector:
         collector.set_book_genre('Ретро в конце спринта', 'Комедии')
         assert collector.get_books_with_specific_genre('Комедии') == ['Ретро в конце спринта']
 
-    def test_get_books_genre_type_dict(self):
+    def test_get_books_genre_got_book_genre(self):
         collector = BooksCollector()
         collector.add_new_book('Ретро в конце спринта')
-        assert type(collector.get_books_genre()) == dict
+        collector.set_book_genre('Ретро в конце спринта', 'Комедии')
+        assert collector.get_book_genre('Ретро в конце спринта') == 'Комедии'
 
     def test_get_books_for_children_got_children_books(self):
         collector = BooksCollector()
@@ -65,4 +66,4 @@ class TestBooksCollector:
         collector.add_book_in_favorites('На моей стороне не воспроизводится')
         collector.add_new_book('Коллеги, микрофон забыл включить')
         collector.add_book_in_favorites('Коллеги, микрофон забыл включить')
-        assert len(collector.favorites) == 2
+        assert collector.favorites == ['На моей стороне не воспроизводится','Коллеги, микрофон забыл включить']
