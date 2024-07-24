@@ -66,4 +66,4 @@ class TestBooksCollector:
         collector.add_book_in_favorites('На моей стороне не воспроизводится')
         collector.add_new_book('Коллеги, микрофон забыл включить')
         collector.add_book_in_favorites('Коллеги, микрофон забыл включить')
-        assert collector.favorites == ['На моей стороне не воспроизводится','Коллеги, микрофон забыл включить']
+        assert collector.get_list_of_favorites_books() == ['На моей стороне не воспроизводится','Коллеги, микрофон забыл включить']
